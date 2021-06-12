@@ -11,34 +11,6 @@ use Illuminate\Support\Facades\Hash;
 class UserController extends Controller
 {
 
-    public function index() {
-        return view('login');
-    }
-
-    public function register() {
-        return view('register');
-    }
-
-    // public function createUser(Request $request){
-    //     // @users = User::
-    //     $user = new User();
-    //     $user->name = request('name');
-    //     $user->email = request('email');
-    //     $user->username = request('username');
-    //     $user->password = request('password');
-    //     error_log($user);
-    //     $user->save();
-    //     // return redirect('/')->with('msg','Account registerd, login to continue.');
-    //     // return response()->json(['message' => 'Got a Response'],200);
-    //     return response(['msg' => 'Account succesfully created, Login to continue'], 201);
-    // }
-
-    
-    // public function userDetails(Request $request){
-    //     $users = User::all();
-    //     return response(['users' => $users]);
-    // }
-
     public function userDetails(Request $request){
         $user = User::where('email',request('email'))->first();
         if($user){
