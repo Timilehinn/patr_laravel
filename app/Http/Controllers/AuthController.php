@@ -11,7 +11,7 @@ class AuthController extends Controller
 {
 
     public function createUser(Request $request){
-        
+
         $_user = User::where('email',request('email'))->first(); // to check if email is already registerd
         if($_user){
             return response(['msg'=>'An Account with that email is already registered.','done'=>true,'success'=>false]);
@@ -64,7 +64,7 @@ class AuthController extends Controller
     }
 
     public function VerifyToken(Request $request){
-        error_log('timi');
+        error_log('timi'); 
 
         // RETURNS USER DETAILS AFTER VALIDATING THE TOKEN
 
