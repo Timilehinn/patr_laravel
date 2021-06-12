@@ -11,6 +11,13 @@ use Illuminate\Support\Facades\Hash;
 class UserController extends Controller
 {
 
+    public function index() {
+        return view('login');
+    }
+
+    public function register() {
+        return view('register');
+    }
     public function userDetails(Request $request){
         $user = User::where('email',request('email'))->first();
         if($user){
