@@ -21,11 +21,11 @@ class UserController extends Controller
         return response(['user'=>$user]);
     }
 
-    public function allusers(){
-            $user = User::all();
-            return response(['users'=>$user]);
+    // public function allusers(){
+    //         $user = User::all();
+    //         return response(['users'=>$user]);
        
-    }
+    // }
 
     public function updateDetails(Request $request){
         if(request('email') and request('name') and request('username') and request('password')){

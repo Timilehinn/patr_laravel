@@ -19,7 +19,6 @@ use App\Http\Controllers\AuthController;
 // protected routes
 Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::get('/user/{email}',[UserController::class, 'user']);
-    Route::get('/allusers',[UserController::class, 'allusers']);
     Route::post('/update-user',[UserController::class, 'updateDetails']);
     Route::delete('/delete/{email}',[UserController::class, 'deleteUser']);
 });
