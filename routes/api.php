@@ -18,14 +18,10 @@ use App\Http\Controllers\AuthController;
 // Route::middleware('auth:api')->post('/register', function (Request $request) {
 // protected routes
 Route::group(['middleware' => ['auth:sanctum']], function () {
-    Route::get('/user-details',[UserController::class, 'userDetails']);
-
-    // TO VERIFY TOKEN SENT FROM THE FRONTEND
-    Route::get('/verifying',[AuthController::class, 'verifyToken']);
-
-    Route::post('/update-details',[UserController::class, 'updateDetails']);
-    Route::post('/update-password',[UserController::class, 'updatePassword']);
-    Route::delete('/delete-user',[UserController::class, 'deleteUser']);
+    Route::get('/user/{email}',[UserController::class, 'user']);
+    Route::get('/allusers',[UserController::class, 'allusers']);
+    Route::post('/update-user',[UserController::class, 'updateDetails']);
+    Route::delete('/delete/{email}',[UserController::class, 'deleteUser']);
 });
 Route::post('/register', [AuthController::class, 'createUser']);
 Route::post('/login', [AuthController::class, 'loginUser']);

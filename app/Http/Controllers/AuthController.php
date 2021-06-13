@@ -75,9 +75,5 @@ class AuthController extends Controller
         return response(['msg'=>'authentiation passed', 'details'=> $user, 'authenticated'=>true]);
     }
 
-    public function logout(){
-        auth()->user()->tokens()->delete();
-        return response(['msg'=>'logou successful']);
-    }
 
 }
