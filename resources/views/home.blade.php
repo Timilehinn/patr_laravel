@@ -19,7 +19,7 @@
         <h2>UnProtected routes</h2>
         <li>Login User https://pat-asses.herokuapp.com/api/register  --( POST accepts {email,name,username,password} details cannot be null )</li>
         <li>Regsiter User https://pat-asses.herokuapp.com/api/login  --( POST accepts {email,password} details cannot be null, a token is generated for validation on protected routes )</li>
-       <p>Note: All protected routes need a token for access e.g, {headers:{"Authorization":"Bearer + <i>token generated</i>, e.g(03|skdjnfiurevs...)"}}</p>
+       <p>Note: All protected routes need a token for access e.g, {headers:{"Authorization":"Bearer + <i>token</i>, e.g(Bearer 3|skdjnfiurevs9egherugh394vuvdfb)"}}</p>
        </ul>
     </div>
     
