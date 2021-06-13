@@ -22,12 +22,12 @@ class UserController extends Controller
     }
 
     public function allusers(){
-        $user = User::all();
-        return response(['users'=>$user]);
+            $user = User::all();
+            return response(['users'=>$user]);
+       
     }
 
     public function updateDetails(Request $request){
-        
         if(request('email') and request('name') and request('username') and request('password')){
             $user = User::where('email',request('email'))->update([
                 'email'=>request('email'),

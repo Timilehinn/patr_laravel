@@ -21,11 +21,11 @@ class AuthController extends Controller
             $user->email = request('email');
             $user->username = request('username');
             $user->password = bcrypt(request('password'));
-            if(!$user->name || !$user->email || !$user->username || !request('password')){
-                return response(['msg'=>'Input Payload cannot be empty','done'=>true,'success'=>false]);
-            }else{
+            if(request('email') and request('name') and request('username') and request('password')){
                 $user->save();
                 return response(['msg'=>'Account successfully created','done'=>true,'success'=>true]);
+            }else{
+                return response(['msg'=>'Input Payload cannot be empty, al feilds are required','done'=>true,'success'=>false]);
             }
            
             $response = [
@@ -39,7 +39,7 @@ class AuthController extends Controller
         $user = User::where('email',request('email'))->first();
         $creds = request()->only(['email,password']);
 
-        if(!request('email') || !request('password')){
+        if(!request('email') and !request('password')){
             return response(['msg' => 'Loing input value cannot be empty','done'=>true,'success'=>false], 201);
         }elseif($user){
             error_log(request('password'));
